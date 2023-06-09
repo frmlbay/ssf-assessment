@@ -15,20 +15,42 @@ import vttp2023.batch3.ssf.frontcontroller.model.Person;
 import vttp2023.batch3.ssf.frontcontroller.services.AuthenticationService;
 
 @Controller
-@RequestMapping(path="/view0")
+@RequestMapping(path="/")
 public class FrontController {
 
 	// TODO: Task 2, Task 3, Task 4, Task 6
 
-	@GetMapping
+	@Autowired
+
+	HttpSession session;
+	int failcount = 0;
+
+	@GetMapping("/{login}")
 	public String user(Model user, HttpSession session){
 		Person p = (Person)session.getAttribute("username");
 		if(p==null){
-			return "view0";
+			failcount++;
+			return "login";
 		}
 
 	}
 
+	// @GetMapping("/{username}")
+	// public String 
+
+	//@PostMapping(consumes="application/x-www-form-urlencoded", path="/user")
+
+
+	@RequestMapping("/{logout}")
+	public String logOut{
+		if (session != null){
+			session.invalidate();
+		}
+
+		return "login";
+
+	}
+	
 
 
 	//garbage
