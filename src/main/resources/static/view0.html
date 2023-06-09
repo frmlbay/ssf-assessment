@@ -18,7 +18,7 @@
 					<label for="username">Username:</label> 
 				</td>
 				<td>
-					<input type="text" id="username" size="30" 
+					<input type="text" id="username" size="30" min="2" data-th-field="*{username}"
 							placeholder="Please type in your username" >
 				</td>
 			</tr>
@@ -27,14 +27,18 @@
 					<label for="password">Password:</label>
 				</td>
 				<td>
-					<input type="password" id="password" size="30" 
+					<input type="password" id="password" size="30" min="2" data-th-field="*{password}"
 							placeholder="Please type in your password">
 				</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<button>Login</button>
+					<form method="POST" action="/login">
+						<input type="text" name="username">
+						<input type="password" name="password">
+						<button type="submit">Login</button>
+					</form>
 				</td>
 			</tr>
 		</table>
