@@ -12,33 +12,6 @@ import jakarta.validation.constraints.Size;
 
 public class AuthenticationService {
 
-	@NotNull(message="Enter a name")
-	@Size(min=2, message="Minimum name not less than 2 characters")
-	@NotBlank(message="Enter a name")
-	private String username;
-
-	@NotNull(message="Enter password")
-	@Size(min=2, message="Password length not less than 2 characters")
-	@NotBlank(message="Enter password")
-	private String password;
-
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	// TODO: Task 2
 	// DO NOT CHANGE THE METHOD'S SIGNATURE
 	// Write the authentication method in here
